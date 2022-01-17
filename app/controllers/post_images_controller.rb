@@ -16,8 +16,14 @@ class PostImagesController < ApplicationController
   end
 
   def show
+    @post_image = PostImage.find(params[:id])
   end
 
+  def destroy
+    @post_image = PostImage.find(params[:id])
+    @post_image.destroy
+    redirect_to post_images_path
+  end
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   def after_sign_in_path_for(resource)
