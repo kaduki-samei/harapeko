@@ -17,4 +17,7 @@ class PostImage < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
 
+  validates :image, presence: true
+  validates :shop_name, presence: true
+
 end
